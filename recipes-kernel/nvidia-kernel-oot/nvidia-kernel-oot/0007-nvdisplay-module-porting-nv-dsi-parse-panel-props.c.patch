@@ -1,0 +1,39 @@
+From 37d2fcdac4286772cc48722e7b3fdf92752dfdce Mon Sep 17 00:00:00 2001
+From: "Saravanan.K.S" <saravanan.kadambathursubramaniyam@windriver.com>
+Date: Tue, 4 Mar 2025 05:11:04 +0000
+Subject: [PATCH] nvdisplay module porting nv-dsi-parse-panel-props.c to 6.6
+ kernel
+
+Update nv-dsi-parse-panel-props.c -> of_property_for_each_u32 function parameters
+to align 6.6 kernel function definitions.
+
+Upstream-Status: Inappropriate [WRLinux specific]
+
+Signed-off-by: Saravanan.K.S <saravanan.kadambathursubramaniyam@windriver.com>
+---
+ nvdisplay/kernel-open/nvidia/nv-dsi-parse-panel-props.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/nvdisplay/kernel-open/nvidia/nv-dsi-parse-panel-props.c b/nvdisplay/kernel-open/nvidia/nv-dsi-parse-panel-props.c
+index 9ac5866..8c6b8de 100644
+--- a/nvdisplay/kernel-open/nvidia/nv-dsi-parse-panel-props.c
++++ b/nvdisplay/kernel-open/nvidia/nv-dsi-parse-panel-props.c
+@@ -493,12 +493,12 @@ static int parse_dsi_properties(const struct device_node *np_dsi, DSI_PANEL_INFO
+         "nvidia,dsi-lvds-bridge", &temp))
+         dsi->dsi2lvds_bridge_enable = (bool)temp;
+ 
+-    of_property_for_each_u32(np_dsi_panel, "nvidia,dsi-dpd-pads", prop, p, temp)
++    of_property_for_each_u32(np_dsi_panel, "nvidia,dsi-dpd-pads", temp)
+         dsi->dpd_dsi_pads |= (u32)temp;
+ 
+     if (!of_property_read_u32(np_dsi_panel,
+-        "nvidia,dsi-power-saving-suspend", &temp))
+-        dsi->power_saving_suspend = (bool)temp;
++	"nvidia,dsi-power-saving-suspend", &temp))
++	dsi->power_saving_suspend = (bool)temp;
+ 
+     if (!of_property_read_u32(np_dsi_panel,
+         "nvidia,dsi-ulpm-not-support", &temp))
+-- 
+2.40.0
+
