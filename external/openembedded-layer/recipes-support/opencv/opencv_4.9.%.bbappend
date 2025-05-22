@@ -1,6 +1,8 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${BPN}:"
 
-inherit cuda
+CUDACLASS = ""
+CUDACLASS:cuda = "cuda"
+inherit ${CUDACLASS}
 
 def opencv_cuda_flags(d):
     arch = d.getVar('TEGRA_CUDA_ARCHITECTURE')
