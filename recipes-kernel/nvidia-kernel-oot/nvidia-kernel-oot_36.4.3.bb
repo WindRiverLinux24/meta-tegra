@@ -16,6 +16,7 @@ SRC_URI += "file://0001-Makefile-update-for-OE-builds.patch \
            file://0002-Fix-nvdisplay-modules-builds.patch \
            file://0001-tegra-virt-alt-Remove-leading-from-include-path-from.patch \
            file://0001-nvidia-kernel-oot-handle-of_property_for_each_u32-ap.patch \
+           file://0003-Header-file-name-update.patch \
            "
 
 S = "${WORKDIR}/${BPN}"

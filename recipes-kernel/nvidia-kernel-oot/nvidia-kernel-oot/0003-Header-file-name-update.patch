@@ -1,0 +1,32 @@
+From c88b0a65bee48ff2432f1c0c25c934b7b0f9da5b Mon Sep 17 00:00:00 2001
+From: Saravanan <saravanan.kadambathursubramaniyam@windriver.com>
+Date: Wed, 25 Jun 2025 13:54:49 +0000
+Subject: [PATCH] Header file name update
+
+File "tegra-prod.h" was not present in Jetpack SDK hence removing it
+from tegra-oot-prod.h and adding tegra-prod-upstream-dummy.h file which
+contains the required structures and function definitions.
+
+Upstream-Status: Inappropriate [WRLinux specific]
+
+Signed-off-by: Saravanan <saravanan.kadambathursubramaniyam@windriver.com>
+---
+ nvidia-oot/include/linux/tegra-oot-prod.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/nvidia-oot/include/linux/tegra-oot-prod.h b/nvidia-oot/include/linux/tegra-oot-prod.h
+index de0021c..992f981 100644
+--- a/nvidia-oot/include/linux/tegra-oot-prod.h
++++ b/nvidia-oot/include/linux/tegra-oot-prod.h
+@@ -10,7 +10,7 @@
+ 
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 16, 0)
+ #ifdef CONFIG_TEGRA_PROD_ENABLE
+-#include <soc/tegra/tegra-prod.h>
++#include <linux/tegra-prod-upstream-dummy.h>
+ #include <linux/tegra_prod.h>
+ #else
+ #include <linux/tegra-prod-upstream-dummy.h>
+-- 
+2.40.0
+
